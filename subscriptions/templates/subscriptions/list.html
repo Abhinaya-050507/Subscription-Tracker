@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Subscriptions</title>
+</head>
+<body>
+    <h1>Your Subscriptions</h1>
+    <a href="{% url 'add_subscription' %}">Add New</a>
+    <ul>
+        {% for sub in subs %}
+        <li>{{ sub.name }} - ₹{{ sub.price }} ({{ sub.billing_cycle }}) - Next: {{ sub.next_renewal }}</li>
+        {% empty %}
+        <li>No subscriptions yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
